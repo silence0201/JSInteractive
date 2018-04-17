@@ -1,0 +1,33 @@
+<!doctype html>
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+</head><body>
+	<h1>NativeAPI Demo</h1>
+	<script>
+    
+    //供OBJC调用的函数
+    function objcCallJSParam(param1,param2) {
+        alert('来自objc的调用，带有参数:' + param1 + '  ' + param2);
+    }
+    
+	function objcCallJSNoReturn(){
+		alert('来自objc的调用，没有返回值');
+	}
+
+    function objcCallJS() {
+        var data = 'ljt'
+        alert('来自objc的调用，有返回值:' + data);
+        return data
+    }
+    
+    //调用OBJC
+	function JSCallObjc() {
+        window.location.href="alert://我是标题?param=这是参数";
+	}
+    
+    
+	</script>
+	<div>
+		<button type="button" value="JSCallObjc" onclick="JSCallObjc()">调用OBJC函数</button>
+	</div>
+</body></html>
