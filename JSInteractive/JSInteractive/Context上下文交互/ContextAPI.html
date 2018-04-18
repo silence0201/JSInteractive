@@ -1,0 +1,44 @@
+<!doctype html>
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+</head><body>
+	<h1>ContextAPI Demo</h1>
+	<script>
+    
+    //供OBJC调用的函数
+    function objcCallJSParam(param1,param2) {
+        alert('来自objc的调用，带有参数:' + param1 + '  ' + param2);
+    }
+    
+	function objcCallJSNoReturn(){
+		alert('来自objc的调用，没有返回值');
+	}
+
+    function objcCallJS() {
+        var data = 'ljt'
+        alert('来自objc的调用，有返回值:' + data);
+        return data
+    }
+    
+    //调用OBJC
+    function callObjcParam(param1,param2) {
+        var data = JSCallObjcParam('ljt','ths')
+        alert('来自objc(callObjcParam)的返回值:' + data);
+    }
+	function callObjc() {
+        var data = JSCallObjc()
+        alert('来自objc(callObjc)的返回值:' + data);
+	}
+    
+    function callObjcReturn() {
+        var data = JSCallObjcReturn()
+        alert('来自objc(callObjcReturn)的返回值:' + data);
+    }
+    
+	</script>
+	<div>
+        <button type="button" value="JSCallObjc" onclick="callObjcParam()">调用OBJC函数(有参数:ljt,ths)</button>
+		<button type="button" value="JSCallObjc" onclick="callObjc()">调用OBJC函数(无参数)</button>
+        <button type="button" value="JSCallObjc" onclick="callObjcReturn()">调用OBJC函数(有返回值:ljt)</button>
+	</div>
+</body></html>

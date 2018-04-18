@@ -16,6 +16,9 @@
 		E8FB3855208631370084DB24 /* NativeAPI.html in Resources */ = {isa = PBXBuildFile; fileRef = E8FB3854208631370084DB24 /* NativeAPI.html */; };
 		E8FB3859208631820084DB24 /* NativeAPIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8FB3857208631820084DB24 /* NativeAPIViewController.m */; };
 		E8FB385A208631820084DB24 /* NativeAPIViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8FB3858208631820084DB24 /* NativeAPIViewController.xib */; };
+		E8FB385F2087878C0084DB24 /* ContextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8FB385D2087878C0084DB24 /* ContextViewController.m */; };
+		E8FB38602087878C0084DB24 /* ContextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8FB385E2087878C0084DB24 /* ContextViewController.xib */; };
+		E8FB38622087886C0084DB24 /* ContextAPI.html in Resources */ = {isa = PBXBuildFile; fileRef = E8FB38612087886C0084DB24 /* ContextAPI.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +36,10 @@
 		E8FB3856208631820084DB24 /* NativeAPIViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NativeAPIViewController.h; sourceTree = "<group>"; };
 		E8FB3857208631820084DB24 /* NativeAPIViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NativeAPIViewController.m; sourceTree = "<group>"; };
 		E8FB3858208631820084DB24 /* NativeAPIViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NativeAPIViewController.xib; sourceTree = "<group>"; };
+		E8FB385C2087878C0084DB24 /* ContextViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContextViewController.h; sourceTree = "<group>"; };
+		E8FB385D2087878C0084DB24 /* ContextViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContextViewController.m; sourceTree = "<group>"; };
+		E8FB385E2087878C0084DB24 /* ContextViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContextViewController.xib; sourceTree = "<group>"; };
+		E8FB38612087886C0084DB24 /* ContextAPI.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ContextAPI.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +72,7 @@
 		E8FB383B208630260084DB24 /* JSInteractive */ = {
 			isa = PBXGroup;
 			children = (
+				E8FB385B208787700084DB24 /* Context上下文交互 */,
 				E8FB3853208631170084DB24 /* 原生API交互 */,
 				E8FB3852208630820084DB24 /* Others */,
 				E8FB3845208630280084DB24 /* Assets.xcassets */,
@@ -96,6 +104,17 @@
 				E8FB3858208631820084DB24 /* NativeAPIViewController.xib */,
 			);
 			path = "原生API交互";
+			sourceTree = "<group>";
+		};
+		E8FB385B208787700084DB24 /* Context上下文交互 */ = {
+			isa = PBXGroup;
+			children = (
+				E8FB38612087886C0084DB24 /* ContextAPI.html */,
+				E8FB385C2087878C0084DB24 /* ContextViewController.h */,
+				E8FB385D2087878C0084DB24 /* ContextViewController.m */,
+				E8FB385E2087878C0084DB24 /* ContextViewController.xib */,
+			);
+			path = "Context上下文交互";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,6 +178,8 @@
 				E8FB385A208631820084DB24 /* NativeAPIViewController.xib in Resources */,
 				E8FB3846208630280084DB24 /* Assets.xcassets in Resources */,
 				E8FB3855208631370084DB24 /* NativeAPI.html in Resources */,
+				E8FB38602087878C0084DB24 /* ContextViewController.xib in Resources */,
+				E8FB38622087886C0084DB24 /* ContextAPI.html in Resources */,
 				E8FB3844208630260084DB24 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -172,6 +193,7 @@
 			files = (
 				E8FB3859208631820084DB24 /* NativeAPIViewController.m in Sources */,
 				E8FB3841208630260084DB24 /* ViewController.m in Sources */,
+				E8FB385F2087878C0084DB24 /* ContextViewController.m in Sources */,
 				E8FB384C208630280084DB24 /* main.m in Sources */,
 				E8FB383E208630260084DB24 /* AppDelegate.m in Sources */,
 			);

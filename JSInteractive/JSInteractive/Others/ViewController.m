@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "NativeAPIViewController.h"
+#import "ContextViewController.h"
 
 @interface ViewController ()
 
@@ -21,6 +22,9 @@
 
 - (IBAction)NativeAPIAction:(id)sender {
     [self.navigationController pushViewController:[NativeAPIViewController new] animated:YES];
+}
+- (IBAction)ContextAPIAction:(id)sender {
+    [self.navigationController pushViewController:[ContextViewController new] animated:YES];
 }
 
 @end
