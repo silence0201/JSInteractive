@@ -19,6 +19,9 @@
 		E8FB385F2087878C0084DB24 /* ContextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8FB385D2087878C0084DB24 /* ContextViewController.m */; };
 		E8FB38602087878C0084DB24 /* ContextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8FB385E2087878C0084DB24 /* ContextViewController.xib */; };
 		E8FB38622087886C0084DB24 /* ContextAPI.html in Resources */ = {isa = PBXBuildFile; fileRef = E8FB38612087886C0084DB24 /* ContextAPI.html */; };
+		E8FB38652088D55C0084DB24 /* JSExportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8FB38642088D55C0084DB24 /* JSExportViewController.xib */; };
+		E8FB38682088D56A0084DB24 /* JSExportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8FB38672088D56A0084DB24 /* JSExportViewController.m */; };
+		E8FB386A2088DA270084DB24 /* JSExportAPI.html in Resources */ = {isa = PBXBuildFile; fileRef = E8FB38692088DA270084DB24 /* JSExportAPI.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +43,10 @@
 		E8FB385D2087878C0084DB24 /* ContextViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContextViewController.m; sourceTree = "<group>"; };
 		E8FB385E2087878C0084DB24 /* ContextViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContextViewController.xib; sourceTree = "<group>"; };
 		E8FB38612087886C0084DB24 /* ContextAPI.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ContextAPI.html; sourceTree = "<group>"; };
+		E8FB38642088D55C0084DB24 /* JSExportViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JSExportViewController.xib; sourceTree = "<group>"; };
+		E8FB38662088D56A0084DB24 /* JSExportViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSExportViewController.h; sourceTree = "<group>"; };
+		E8FB38672088D56A0084DB24 /* JSExportViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSExportViewController.m; sourceTree = "<group>"; };
+		E8FB38692088DA270084DB24 /* JSExportAPI.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = JSExportAPI.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +79,7 @@
 		E8FB383B208630260084DB24 /* JSInteractive */ = {
 			isa = PBXGroup;
 			children = (
+				E8FB38632088D5270084DB24 /* JSExport交互 */,
 				E8FB385B208787700084DB24 /* Context上下文交互 */,
 				E8FB3853208631170084DB24 /* 原生API交互 */,
 				E8FB3852208630820084DB24 /* Others */,
@@ -115,6 +123,17 @@
 				E8FB385E2087878C0084DB24 /* ContextViewController.xib */,
 			);
 			path = "Context上下文交互";
+			sourceTree = "<group>";
+		};
+		E8FB38632088D5270084DB24 /* JSExport交互 */ = {
+			isa = PBXGroup;
+			children = (
+				E8FB38692088DA270084DB24 /* JSExportAPI.html */,
+				E8FB38642088D55C0084DB24 /* JSExportViewController.xib */,
+				E8FB38662088D56A0084DB24 /* JSExportViewController.h */,
+				E8FB38672088D56A0084DB24 /* JSExportViewController.m */,
+			);
+			path = "JSExport交互";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,6 +194,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8FB3849208630280084DB24 /* LaunchScreen.storyboard in Resources */,
+				E8FB386A2088DA270084DB24 /* JSExportAPI.html in Resources */,
+				E8FB38652088D55C0084DB24 /* JSExportViewController.xib in Resources */,
 				E8FB385A208631820084DB24 /* NativeAPIViewController.xib in Resources */,
 				E8FB3846208630280084DB24 /* Assets.xcassets in Resources */,
 				E8FB3855208631370084DB24 /* NativeAPI.html in Resources */,
@@ -194,6 +215,7 @@
 				E8FB3859208631820084DB24 /* NativeAPIViewController.m in Sources */,
 				E8FB3841208630260084DB24 /* ViewController.m in Sources */,
 				E8FB385F2087878C0084DB24 /* ContextViewController.m in Sources */,
+				E8FB38682088D56A0084DB24 /* JSExportViewController.m in Sources */,
 				E8FB384C208630280084DB24 /* main.m in Sources */,
 				E8FB383E208630260084DB24 /* AppDelegate.m in Sources */,
 			);

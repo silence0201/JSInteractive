@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "NativeAPIViewController.h"
 #import "ContextViewController.h"
+#import "JSExportViewController.h"
 
 @interface ViewController ()
 
@@ -25,6 +26,9 @@
 }
 - (IBAction)ContextAPIAction:(id)sender {
     [self.navigationController pushViewController:[ContextViewController new] animated:YES];
+}
+- (IBAction)JSExportAction:(id)sender {
+    [self.navigationController pushViewController:[JSExportViewController new] animated:YES];
 }
 
 @end
