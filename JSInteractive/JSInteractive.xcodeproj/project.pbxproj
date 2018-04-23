@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0AD96DC50C3179B9FDF465D8 /* libPods-JSInteractive.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14C7F7AAE2499AB94B9C5197 /* libPods-JSInteractive.a */; };
 		E8FB383E208630260084DB24 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E8FB383D208630260084DB24 /* AppDelegate.m */; };
 		E8FB3841208630260084DB24 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8FB3840208630260084DB24 /* ViewController.m */; };
 		E8FB3844208630260084DB24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8FB3842208630260084DB24 /* Main.storyboard */; };
@@ -25,6 +26,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		14C7F7AAE2499AB94B9C5197 /* libPods-JSInteractive.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JSInteractive.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E05619B1791C66F49BD1521 /* Pods-JSInteractive.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JSInteractive.release.xcconfig"; path = "Pods/Target Support Files/Pods-JSInteractive/Pods-JSInteractive.release.xcconfig"; sourceTree = "<group>"; };
+		C7A2F1F3D03B011F54BA80D2 /* Pods-JSInteractive.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JSInteractive.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JSInteractive/Pods-JSInteractive.debug.xcconfig"; sourceTree = "<group>"; };
 		E8FB3839208630260084DB24 /* JSInteractive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JSInteractive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8FB383C208630260084DB24 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E8FB383D208630260084DB24 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -54,17 +58,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AD96DC50C3179B9FDF465D8 /* libPods-JSInteractive.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		85AD1EA89E255E8E5C471D24 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				14C7F7AAE2499AB94B9C5197 /* libPods-JSInteractive.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AF36F26AF8341DE8283B5B09 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C7A2F1F3D03B011F54BA80D2 /* Pods-JSInteractive.debug.xcconfig */,
+				4E05619B1791C66F49BD1521 /* Pods-JSInteractive.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		E8FB3830208630260084DB24 = {
 			isa = PBXGroup;
 			children = (
 				E8FB383B208630260084DB24 /* JSInteractive */,
 				E8FB383A208630260084DB24 /* Products */,
+				AF36F26AF8341DE8283B5B09 /* Pods */,
+				85AD1EA89E255E8E5C471D24 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -143,9 +167,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E8FB384F208630280084DB24 /* Build configuration list for PBXNativeTarget "JSInteractive" */;
 			buildPhases = (
+				89BCA9C8F74E9AEDD05028E6 /* [CP] Check Pods Manifest.lock */,
 				E8FB3835208630260084DB24 /* Sources */,
 				E8FB3836208630260084DB24 /* Frameworks */,
 				E8FB3837208630260084DB24 /* Resources */,
+				3BA4BBD895FAFC5A8AB11397 /* [CP] Embed Pods Frameworks */,
+				EE1690CD7CA5DFC42411BF35 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -206,6 +233,57 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3BA4BBD895FAFC5A8AB11397 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JSInteractive/Pods-JSInteractive-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		89BCA9C8F74E9AEDD05028E6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JSInteractive-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EE1690CD7CA5DFC42411BF35 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JSInteractive/Pods-JSInteractive-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E8FB3835208630260084DB24 /* Sources */ = {
@@ -355,14 +433,12 @@
 		};
 		E8FB3850208630280084DB24 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C7A2F1F3D03B011F54BA80D2 /* Pods-JSInteractive.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = JSInteractive/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.silence.JSInteractive;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -371,14 +447,12 @@
 		};
 		E8FB3851208630280084DB24 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4E05619B1791C66F49BD1521 /* Pods-JSInteractive.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = JSInteractive/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.silence.JSInteractive;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
