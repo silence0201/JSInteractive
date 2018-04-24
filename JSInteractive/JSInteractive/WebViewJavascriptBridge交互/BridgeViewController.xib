@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BridgeViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="webView" destination="eVm-5l-hCz" id="07y-p7-cDP"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="arF-cY-vA6">
+                    <rect key="frame" x="0.0" y="517" width="375" height="150"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mog-m4-NHF">
+                            <rect key="frame" x="115" y="20" width="144" height="30"/>
+                            <state key="normal" title="调用JS函数,有返回值"/>
+                            <connections>
+                                <action selector="callJSAction:" destination="-1" eventType="touchUpInside" id="IzI-6F-znq"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hJu-a3-qzD">
+                            <rect key="frame" x="102" y="58" width="171" height="30"/>
+                            <state key="normal" title="调用JS函数，没有返回值"/>
+                            <connections>
+                                <action selector="callJSNoReturnAction:" destination="-1" eventType="touchUpInside" id="AIA-BF-CvI"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pb4-Vh-oqd">
+                            <rect key="frame" x="110" y="102" width="155" height="30"/>
+                            <state key="normal" title="调用JS函数，带有参数"/>
+                            <connections>
+                                <action selector="callJSWithParamAction:" destination="-1" eventType="touchUpInside" id="RoG-cq-hjt"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="mog-m4-NHF" firstAttribute="centerX" secondItem="arF-cY-vA6" secondAttribute="centerX" id="0EC-Gf-3t5"/>
+                        <constraint firstAttribute="height" constant="150" id="9D9-q3-RBm"/>
+                        <constraint firstItem="pb4-Vh-oqd" firstAttribute="top" secondItem="hJu-a3-qzD" secondAttribute="bottom" constant="14" id="Rgs-3o-aW1"/>
+                        <constraint firstItem="pb4-Vh-oqd" firstAttribute="centerX" secondItem="hJu-a3-qzD" secondAttribute="centerX" id="cNf-8M-wrx"/>
+                        <constraint firstItem="hJu-a3-qzD" firstAttribute="top" secondItem="mog-m4-NHF" secondAttribute="bottom" constant="8" id="nzs-Ai-2GM"/>
+                        <constraint firstItem="hJu-a3-qzD" firstAttribute="centerX" secondItem="mog-m4-NHF" secondAttribute="centerX" id="qHr-1p-mLQ"/>
+                        <constraint firstItem="mog-m4-NHF" firstAttribute="top" secondItem="arF-cY-vA6" secondAttribute="top" constant="20" id="zVU-83-nMg"/>
+                    </constraints>
+                </view>
+                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eVm-5l-hCz">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="517"/>
+                    <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </webView>
+            </subviews>
+            <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="arF-cY-vA6" firstAttribute="bottom" secondItem="Q5M-cg-NOt" secondAttribute="bottom" id="5HF-FU-JRN"/>
+                <constraint firstItem="arF-cY-vA6" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="8LX-lW-hXG"/>
+                <constraint firstItem="eVm-5l-hCz" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="K55-YN-7B6"/>
+                <constraint firstItem="eVm-5l-hCz" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="LdW-Ir-xsM"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="eVm-5l-hCz" secondAttribute="trailing" id="dF9-pf-vvX"/>
+                <constraint firstItem="arF-cY-vA6" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="rzP-MQ-6fd"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="eVm-5l-hCz" secondAttribute="bottom" constant="150" id="yee-1b-Ang"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <point key="canvasLocation" x="33.5" y="53.5"/>
+        </view>
+    </objects>
+</document>

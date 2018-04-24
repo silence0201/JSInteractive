@@ -42,6 +42,14 @@
                                     <action selector="JSExportAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="j2e-Ji-V1I"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7tL-La-Y9s">
+                                <rect key="frame" x="149" y="243" width="76" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Bridge交互"/>
+                                <connections>
+                                    <action selector="BridgeAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TrF-BG-q3A"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

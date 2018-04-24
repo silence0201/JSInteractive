@@ -10,6 +10,7 @@
 #import "NativeAPIViewController.h"
 #import "ContextViewController.h"
 #import "JSExportViewController.h"
+#import "BridgeViewController.h"
 
 @interface ViewController ()
 
@@ -30,5 +31,8 @@
 - (IBAction)JSExportAction:(id)sender {
     [self.navigationController pushViewController:[JSExportViewController new] animated:YES];
 }
-
+- (IBAction)BridgeAction:(id)sender {
+    [self.navigationController pushViewController:[BridgeViewController new] animated:YES];
+}
+    
 @end

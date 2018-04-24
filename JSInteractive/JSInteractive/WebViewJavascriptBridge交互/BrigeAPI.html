@@ -1,0 +1,66 @@
+<!doctype html>
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+</head><body>
+	<h1>BrigeAPI Demo</h1>
+	<script>
+    
+    window.onerror = function(err) {
+		log('window.onerror: ' + err)
+	}
+    //固定函数，必须这样写
+    function setupWebViewJavascriptBridge(callback) {
+        if (window.WebViewJavascriptBridge) { return callback(WebViewJavascriptBridge); }
+        if (window.WVJBCallbacks) { return window.WVJBCallbacks.push(callback); }
+        window.WVJBCallbacks = [callback];
+        var WVJBIframe = document.createElement('iframe');
+        WVJBIframe.style.display = 'none';
+        WVJBIframe.src = 'https://__bridge_loaded__';
+        document.documentElement.appendChild(WVJBIframe);
+        setTimeout(function() { document.documentElement.removeChild(WVJBIframe) }, 0)
+    }
+
+    //所有交互的函数都写在这里面
+    setupWebViewJavascriptBridge(function(bridge) {
+		var uniqueId = 1
+		function log(message, data) {
+			var log = document.getElementById('log')
+			var el = document.createElement('div')
+			el.className = 'logLine'
+			el.innerHTML = uniqueId++ + '. ' + message + ':<br/>' + JSON.stringify(data)
+			if (log.children.length) { log.insertBefore(el, log.children[0]) }
+			else { log.appendChild(el) }
+		}
+
+		// 注册需要在OC中回调的函数
+		bridge.registerHandler('objcCallJS', function(data, responseCallback) {
+            myAlert(data)
+			var responseData = { 'Javascript Says':'Right back atcha!' }
+			responseCallback(responseData)
+		})
+                                 
+
+		//调用OBJC中的函数
+		var callbackButton = document.getElementById('btn')
+		callbackButton.onclick = function(e) {
+			e.preventDefault()
+                                 
+			//callHandler的参数可变
+			//bridge.callHandler('JSCallObjc') 没有携带数据
+			//bridge.callHandler('JSCallObjc', {'key': 'value'}) 携带数据
+			//bridge.callHandler('JSCallObjc', {'key': 'value'},function(response) {
+			//		log('JS got response', response)
+			//	}) 携带参数和回调函数
+                   
+            //bridge.callHandler('JSCallObjc')              
+            bridge.callHandler('JSCallObjc',{'key': 'Hello,World'})
+		}
+	})
+    function myAlert(data){
+        alert(data['key']);
+    }
+	</script>
+	<div>
+		<button type="button" value="callObjc" id="btn">调用OBJC函数</button>
+	</div>
+</body></html>

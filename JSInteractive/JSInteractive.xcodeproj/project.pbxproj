@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0AD96DC50C3179B9FDF465D8 /* libPods-JSInteractive.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14C7F7AAE2499AB94B9C5197 /* libPods-JSInteractive.a */; };
+		E8CE0DFE208E274D0055954A /* BrigeAPI.html in Resources */ = {isa = PBXBuildFile; fileRef = E8CE0DFD208E274D0055954A /* BrigeAPI.html */; };
+		E8CE0E00208E27DB0055954A /* BridgeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8CE0DFF208E27DA0055954A /* BridgeViewController.xib */; };
+		E8CE0E03208E27FA0055954A /* BridgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8CE0E02208E27FA0055954A /* BridgeViewController.m */; };
 		E8FB383E208630260084DB24 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E8FB383D208630260084DB24 /* AppDelegate.m */; };
 		E8FB3841208630260084DB24 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8FB3840208630260084DB24 /* ViewController.m */; };
 		E8FB3844208630260084DB24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8FB3842208630260084DB24 /* Main.storyboard */; };
@@ -29,6 +32,10 @@
 		14C7F7AAE2499AB94B9C5197 /* libPods-JSInteractive.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JSInteractive.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E05619B1791C66F49BD1521 /* Pods-JSInteractive.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JSInteractive.release.xcconfig"; path = "Pods/Target Support Files/Pods-JSInteractive/Pods-JSInteractive.release.xcconfig"; sourceTree = "<group>"; };
 		C7A2F1F3D03B011F54BA80D2 /* Pods-JSInteractive.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JSInteractive.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JSInteractive/Pods-JSInteractive.debug.xcconfig"; sourceTree = "<group>"; };
+		E8CE0DFD208E274D0055954A /* BrigeAPI.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = BrigeAPI.html; sourceTree = "<group>"; };
+		E8CE0DFF208E27DA0055954A /* BridgeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BridgeViewController.xib; sourceTree = "<group>"; };
+		E8CE0E01208E27FA0055954A /* BridgeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgeViewController.h; sourceTree = "<group>"; };
+		E8CE0E02208E27FA0055954A /* BridgeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BridgeViewController.m; sourceTree = "<group>"; };
 		E8FB3839208630260084DB24 /* JSInteractive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JSInteractive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8FB383C208630260084DB24 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E8FB383D208630260084DB24 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -82,6 +89,17 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		E8CE0DFC208E273B0055954A /* WebViewJavascriptBridge交互 */ = {
+			isa = PBXGroup;
+			children = (
+				E8CE0DFF208E27DA0055954A /* BridgeViewController.xib */,
+				E8CE0DFD208E274D0055954A /* BrigeAPI.html */,
+				E8CE0E01208E27FA0055954A /* BridgeViewController.h */,
+				E8CE0E02208E27FA0055954A /* BridgeViewController.m */,
+			);
+			path = "WebViewJavascriptBridge交互";
+			sourceTree = "<group>";
+		};
 		E8FB3830208630260084DB24 = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +121,7 @@
 		E8FB383B208630260084DB24 /* JSInteractive */ = {
 			isa = PBXGroup;
 			children = (
+				E8CE0DFC208E273B0055954A /* WebViewJavascriptBridge交互 */,
 				E8FB38632088D5270084DB24 /* JSExport交互 */,
 				E8FB385B208787700084DB24 /* Context上下文交互 */,
 				E8FB3853208631170084DB24 /* 原生API交互 */,
@@ -225,7 +244,9 @@
 				E8FB38652088D55C0084DB24 /* JSExportViewController.xib in Resources */,
 				E8FB385A208631820084DB24 /* NativeAPIViewController.xib in Resources */,
 				E8FB3846208630280084DB24 /* Assets.xcassets in Resources */,
+				E8CE0DFE208E274D0055954A /* BrigeAPI.html in Resources */,
 				E8FB3855208631370084DB24 /* NativeAPI.html in Resources */,
+				E8CE0E00208E27DB0055954A /* BridgeViewController.xib in Resources */,
 				E8FB38602087878C0084DB24 /* ContextViewController.xib in Resources */,
 				E8FB38622087886C0084DB24 /* ContextAPI.html in Resources */,
 				E8FB3844208630260084DB24 /* Main.storyboard in Resources */,
@@ -295,6 +316,7 @@
 				E8FB385F2087878C0084DB24 /* ContextViewController.m in Sources */,
 				E8FB38682088D56A0084DB24 /* JSExportViewController.m in Sources */,
 				E8FB384C208630280084DB24 /* main.m in Sources */,
+				E8CE0E03208E27FA0055954A /* BridgeViewController.m in Sources */,
 				E8FB383E208630260084DB24 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -438,7 +460,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = JSInteractive/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.silence.JSInteractive;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -452,7 +477,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = JSInteractive/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.silence.JSInteractive;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
