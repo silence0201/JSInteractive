@@ -11,6 +11,7 @@
 		E8CE0DFE208E274D0055954A /* BrigeAPI.html in Resources */ = {isa = PBXBuildFile; fileRef = E8CE0DFD208E274D0055954A /* BrigeAPI.html */; };
 		E8CE0E00208E27DB0055954A /* BridgeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8CE0DFF208E27DA0055954A /* BridgeViewController.xib */; };
 		E8CE0E03208E27FA0055954A /* BridgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8CE0E02208E27FA0055954A /* BridgeViewController.m */; };
+		E8CE0E07208F6A9F0055954A /* UIWebView+JSInteractive.m in Sources */ = {isa = PBXBuildFile; fileRef = E8CE0E06208F6A9F0055954A /* UIWebView+JSInteractive.m */; };
 		E8FB383E208630260084DB24 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E8FB383D208630260084DB24 /* AppDelegate.m */; };
 		E8FB3841208630260084DB24 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8FB3840208630260084DB24 /* ViewController.m */; };
 		E8FB3844208630260084DB24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8FB3842208630260084DB24 /* Main.storyboard */; };
@@ -36,6 +37,8 @@
 		E8CE0DFF208E27DA0055954A /* BridgeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BridgeViewController.xib; sourceTree = "<group>"; };
 		E8CE0E01208E27FA0055954A /* BridgeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgeViewController.h; sourceTree = "<group>"; };
 		E8CE0E02208E27FA0055954A /* BridgeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BridgeViewController.m; sourceTree = "<group>"; };
+		E8CE0E05208F6A9F0055954A /* UIWebView+JSInteractive.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIWebView+JSInteractive.h"; sourceTree = "<group>"; };
+		E8CE0E06208F6A9F0055954A /* UIWebView+JSInteractive.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+JSInteractive.m"; sourceTree = "<group>"; };
 		E8FB3839208630260084DB24 /* JSInteractive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JSInteractive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8FB383C208630260084DB24 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E8FB383D208630260084DB24 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -100,6 +103,15 @@
 			path = "WebViewJavascriptBridge交互";
 			sourceTree = "<group>";
 		};
+		E8CE0E04208F6A6C0055954A /* JSInteractive */ = {
+			isa = PBXGroup;
+			children = (
+				E8CE0E05208F6A9F0055954A /* UIWebView+JSInteractive.h */,
+				E8CE0E06208F6A9F0055954A /* UIWebView+JSInteractive.m */,
+			);
+			path = JSInteractive;
+			sourceTree = "<group>";
+		};
 		E8FB3830208630260084DB24 = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +133,7 @@
 		E8FB383B208630260084DB24 /* JSInteractive */ = {
 			isa = PBXGroup;
 			children = (
+				E8CE0E04208F6A6C0055954A /* JSInteractive */,
 				E8CE0DFC208E273B0055954A /* WebViewJavascriptBridge交互 */,
 				E8FB38632088D5270084DB24 /* JSExport交互 */,
 				E8FB385B208787700084DB24 /* Context上下文交互 */,
@@ -312,6 +325,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8FB3859208631820084DB24 /* NativeAPIViewController.m in Sources */,
+				E8CE0E07208F6A9F0055954A /* UIWebView+JSInteractive.m in Sources */,
 				E8FB3841208630260084DB24 /* ViewController.m in Sources */,
 				E8FB385F2087878C0084DB24 /* ContextViewController.m in Sources */,
 				E8FB38682088D56A0084DB24 /* JSExportViewController.m in Sources */,
