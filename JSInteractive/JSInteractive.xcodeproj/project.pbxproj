@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0AD96DC50C3179B9FDF465D8 /* libPods-JSInteractive.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14C7F7AAE2499AB94B9C5197 /* libPods-JSInteractive.a */; };
+		E849E7BE208F70B800099C71 /* WKWebView+JSInteractive.m in Sources */ = {isa = PBXBuildFile; fileRef = E849E7BD208F70B800099C71 /* WKWebView+JSInteractive.m */; };
 		E8CE0DFE208E274D0055954A /* BrigeAPI.html in Resources */ = {isa = PBXBuildFile; fileRef = E8CE0DFD208E274D0055954A /* BrigeAPI.html */; };
 		E8CE0E00208E27DB0055954A /* BridgeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8CE0DFF208E27DA0055954A /* BridgeViewController.xib */; };
 		E8CE0E03208E27FA0055954A /* BridgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8CE0E02208E27FA0055954A /* BridgeViewController.m */; };
@@ -33,6 +34,8 @@
 		14C7F7AAE2499AB94B9C5197 /* libPods-JSInteractive.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JSInteractive.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E05619B1791C66F49BD1521 /* Pods-JSInteractive.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JSInteractive.release.xcconfig"; path = "Pods/Target Support Files/Pods-JSInteractive/Pods-JSInteractive.release.xcconfig"; sourceTree = "<group>"; };
 		C7A2F1F3D03B011F54BA80D2 /* Pods-JSInteractive.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JSInteractive.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JSInteractive/Pods-JSInteractive.debug.xcconfig"; sourceTree = "<group>"; };
+		E849E7BC208F70B800099C71 /* WKWebView+JSInteractive.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WKWebView+JSInteractive.h"; sourceTree = "<group>"; };
+		E849E7BD208F70B800099C71 /* WKWebView+JSInteractive.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "WKWebView+JSInteractive.m"; sourceTree = "<group>"; };
 		E8CE0DFD208E274D0055954A /* BrigeAPI.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = BrigeAPI.html; sourceTree = "<group>"; };
 		E8CE0DFF208E27DA0055954A /* BridgeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BridgeViewController.xib; sourceTree = "<group>"; };
 		E8CE0E01208E27FA0055954A /* BridgeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgeViewController.h; sourceTree = "<group>"; };
@@ -108,6 +111,8 @@
 			children = (
 				E8CE0E05208F6A9F0055954A /* UIWebView+JSInteractive.h */,
 				E8CE0E06208F6A9F0055954A /* UIWebView+JSInteractive.m */,
+				E849E7BC208F70B800099C71 /* WKWebView+JSInteractive.h */,
+				E849E7BD208F70B800099C71 /* WKWebView+JSInteractive.m */,
 			);
 			path = JSInteractive;
 			sourceTree = "<group>";
@@ -326,6 +331,7 @@
 			files = (
 				E8FB3859208631820084DB24 /* NativeAPIViewController.m in Sources */,
 				E8CE0E07208F6A9F0055954A /* UIWebView+JSInteractive.m in Sources */,
+				E849E7BE208F70B800099C71 /* WKWebView+JSInteractive.m in Sources */,
 				E8FB3841208630260084DB24 /* ViewController.m in Sources */,
 				E8FB385F2087878C0084DB24 /* ContextViewController.m in Sources */,
 				E8FB38682088D56A0084DB24 /* JSExportViewController.m in Sources */,
