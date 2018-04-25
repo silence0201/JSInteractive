@@ -108,3 +108,87 @@ function JSCallObjc() {
     return YES;
 }
 ```
+
+### 第三方库WebViewJavaScriptBridge交互
+
+使用第三方库WebViewJavaScriptBridge,首先需要导入这个第三方库
+
+第三方库直接通过pod引入:
+
+```
+pod 'WebViewJavascriptBridge', '~> 6.0'
+```
+
+并且需要一个JS固定写法:
+
+```
+//固定函数，必须这样写
+function setupWebViewJavascriptBridge(callback) {
+    if (window.WebViewJavascriptBridge) { return callback(WebViewJavascriptBridge); }
+    if (window.WVJBCallbacks) { return window.WVJBCallbacks.push(callback); }
+    window.WVJBCallbacks = [callback];
+    var WVJBIframe = document.createElement('iframe');
+    WVJBIframe.style.display = 'none';
+    WVJBIframe.src = 'https://__bridge_loaded__';
+    document.documentElement.appendChild(WVJBIframe);
+    setTimeout(function() { document.documentElement.removeChild(WVJBIframe) }, 0)
+}
+
+//所有交互的函数都写在这里面
+setupWebViewJavascriptBridge(function(bridge) {
+	...
+})
+```
+
+#### 1.OBJC调用JS
+首先我们需要在JS中注册一个函数,工OBJC调用:
+
+```
+// 注册需要在OC中回调的函数
+bridge.registerHandler('objcCallJS', function(data, responseCallback) {
+    myAlert(data)
+	var responseData = { 'Javascript Says':'Right back atcha!' }
+	responseCallback(responseData)
+})
+```
+
+在OC中我们就可以向下面这样调用了:
+
+```
+[self.bridge callHandler:@"objcCallJS" data:@{@"key":@"Hello,World"}];
+```
+
+注意:
+1. 名称必须对应上
+2. OBJC中调用JS的函数是通过`- (void)callHandler:(NSString *)handlerName data:(id)data`这个第三方库提供的接口实现的
+3. 调用对应JS函数必须需要注册`bridge.registerHandler('objcCallJS', function(data, responseCallback)`
+
+#### 2.JS调用OBJC
+与OBJC调用JS的逻辑类似
+
+首先需要在OBJC中注册JS中能都调用的函数:
+
+```
+- (void)registMethods {
+    //注册js调用函数，并设定回调。js中可以调用JSCallObjc的函数
+    [self.bridge registerHandler:@"JSCallObjc" handler:^(id data, WVJBResponseCallback responseCallback){
+        NSString *paramStr = [data objectForKey:@"key"];
+        UIAlertController *alterVC = [UIAlertController alertControllerWithTitle:@"objc弹框" message:paramStr preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alterVC addAction:okAction];
+        [self presentViewController:alterVC animated:YES completion:nil];
+        responseCallback(@"Response from testObjcCallback");
+    }];
+}
+```
+
+注册完后,我们就可以在JS中调用这个注册好的函数:
+
+```
+bridge.callHandler('JSCallObjc',{'key': 'Hello,World'})
+```
+
+这个逻辑和接口与OBJC调用JS的接口类似,具体参数也差不多.
+
+到此我们可以利用这个第三方库对实现OBJC与JS之间的相互调用,其实这个库内部还是通过拦截协议来实现交互过程的
+
