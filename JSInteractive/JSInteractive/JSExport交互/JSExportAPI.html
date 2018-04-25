@@ -15,14 +15,14 @@
 	}
 
     function objcCallJS() {
-        var data = 'ljt'
+        var data = 'Hello,World'
         alert('来自objc的调用，有返回值:' + data);
         return data
     }
     
     //调用OBJC
     function callObjcParam(param1,param2) {
-        var data = OBJC.JSCallObjcParamWith('ljt','ths')
+        var data = OBJC.JSCallObjcParamWith('Hello','World')
         alert('来自objc(callObjcParam)的返回值:' + data);
     }
     function callObjc() {
@@ -43,9 +43,9 @@
     
 	</script>
 	<div>
-        <button type="button" value="JSCallObjc" onclick="callObjcParam()">调用OBJC函数(有参数:ljt,ths)</button>
+        <button type="button" value="JSCallObjc" onclick="callObjcParam()">调用OBJC函数(有参数:Hello,World)</button>
         <button type="button" value="JSCallObjc" onclick="callObjc()">调用OBJC函数(无参数)</button>
-        <button type="button" value="JSCallObjc" onclick="callObjcReturn()">调用OBJC函数(有返回值:ljt)</button>
+        <button type="button" value="JSCallObjc" onclick="callObjcReturn()">调用OBJC函数(有返回值:Hello,World)</button>
         <button type="button" value="JSCallObjc" onclick="callTestNoReturn()">调用OBJC别名函数(无返回值)</button>
 	</div>
 </body></html>

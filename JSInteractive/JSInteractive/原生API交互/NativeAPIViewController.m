@@ -41,7 +41,7 @@
 
 - (IBAction)callJSWithParamAction:(id)sender {
     NSLog(@"开始调用JS函数,带有参数");
-    [self.webView stringByEvaluatingJavaScriptFromString:@"objcCallJSParam('ljt','ths')"];
+    [self.webView stringByEvaluatingJavaScriptFromString:@"objcCallJSParam('Hello','World')"];
 }
 
 #pragma mark -- UIWebViewDelegate

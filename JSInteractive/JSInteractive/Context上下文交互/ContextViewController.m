@@ -72,18 +72,18 @@
     NSLog(@"开始调用JS函数,带有参数");
     
     //第一种
-    /*[self.webView stringByEvaluatingJavaScriptFromString:@"objcCallJSParam('ljt','ths')"];*/
+    /*[self.webView stringByEvaluatingJavaScriptFromString:@"objcCallJSParam('Hello','World')"];*/
     
     //第二种
     /*
-    NSString *js = @"objcCallJSParam('ljt','ths')";
+    NSString *js = @"objcCallJSParam('Hello','World')";
     JSValue *value = [self.context evaluateScript:js];
     NSLog(@"%@",[value toString]);
     */
     
     //第三种
     JSValue *valueFuc = self.context[@"objcCallJSParam"];
-    JSValue *value = [valueFuc callWithArguments:@[@"ljt",@"ths"]];
+    JSValue *value = [valueFuc callWithArguments:@[@"Hello",@"World"]];
     NSLog(@"%@",[value toString]);
 }
 
