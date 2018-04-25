@@ -192,3 +192,176 @@ bridge.callHandler('JSCallObjc',{'key': 'Hello,World'})
 
 到此我们可以利用这个第三方库对实现OBJC与JS之间的相互调用,其实这个库内部还是通过拦截协议来实现交互过程的
 
+### JavaScriptCore框架
+
+JavaScriptCore框架是iOS7之后引入的框架,这个框架在JS交互上给我们提供了很大帮助,可以在html界面上调用OC方法,也可以在OC上调用JS方法并传参.使用这个框架需要先导入JavaScriptCore这个框架
+
+#### 1) Context上下文交互
+
+##### 1.OBJC调用JS
+
+OBJC调用JS之前,需要获取JS的上下文:
+
+```
+self.context = [self.webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
+```
+
+获取这个上下文之后,我们就可以对JS执行环境处理,加入我们需要调用JS中已经实现的函数,我们可以直接调用对饮改的函数:
+
+```
+//第一种
+/*[self.webView stringByEvaluatingJavaScriptFromString:@"objcCallJSNoReturn()"];*/
+    
+//第二种
+/*
+NSString *js = @"objcCallJSNoReturn()";
+JSValue *value = [self.context evaluateScript:js];
+NSLog(@"%@",[value toString]);
+*/
+    
+//第三种
+JSValue *valueFuc = self.context[@"objcCallJSNoReturn"];
+JSValue *value = [valueFuc callWithArguments:nil];
+NSLog(@"%@",[value toString]);
+```
+
+以上代码中我们展示了三种不同的调用方式,第三种我们需要从上下文中获取要执行的方法,并将它保存到一个JSValue变量中,然后调用函数获取对应的返回值
+
+##### 2.JS调用OBJC
+首先我们需要在上下中注册我们需要执行的OBJC方法:
+
+```
+- (void)registMethods {
+    __weak typeof(self) weakSelf = self;
+    self.context[@"JSCallObjcParam"] = (id)^(NSString *param1, NSString *param2) {
+        NSLog(@"有参，无返回值");
+        NSString *message = [NSString stringWithFormat:@"%@:%@",param1,param2];
+        UIAlertController *alterVC = [UIAlertController alertControllerWithTitle:@"objc弹框" message:message preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alterVC addAction:okAction];
+        [weakSelf presentViewController:alterVC animated:YES completion:nil];
+    };
+    
+    self.context[@"JSCallObjc"] = ^(){
+        NSLog(@"无参，无返回值");
+    };
+    self.context[@"JSCallObjcReturn"] = ^(){
+        NSLog(@"无参，有返回值");
+        return @"ljt";
+    };
+}
+```
+
+执行完后我们就可以在JS中调用我们注册的方法:
+
+```
+//调用OBJC
+function callObjcParam(param1,param2) {
+    var data = JSCallObjcParam('Hello','World')
+    alert('来自objc(callObjcParam)的返回值:' + data);
+}
+function callObjc() {
+    var data = JSCallObjc()
+    alert('来自objc(callObjc)的返回值:' + data);
+}
+    
+function callObjcReturn() {
+    var data = JSCallObjcReturn()
+    alert('来自objc(callObjcReturn)的返回值:' + data);
+}
+```
+
+Demo中分别实现了相互调用的传参和不传参,有返回值和没有返回值的情况.完整代码请看Demo
+
+#### 2) JSExport结合上下文交互
+
+JSExport是一个协议,我们可以直接定义一个协议,继承这个协议,在协议中声明可以在JS用的OBJC函数
+
+```
+@protocol TestJsExport <JSExport>
+
+JSExportAs(test, - (void)nativeCall:(NSString *)msg);
+
+- (void)JSCallObjcParam:(NSString *)param1 with:(NSString *)param2;
+- (NSString *)JSCallObjcReturn;
+- (void)JSCallObjc;
+
+@end
+```
+
+`JSExportAs`提供了对接口重新命名的快速定义
+
+在这里我们需要知道的是,这个协议所晟敏改的接口都是提供JS调用的,也就是JS代码调用的OBJC的相关借楼,可以放在这个协议中,而OBJC调用JS还是通过上下文调用:
+
+我们需要实现一个类,实现我们自定义的协议:
+
+```
+@interface JSExportViewController : UIViewController<TestJsExport>
+
+@end
+```
+
+然后实现这些接口:
+
+```
+#pragma mark -- 注册的Action
+- (void)JSCallObjcParam:(NSString *)param1 with:(NSString *)param2 {
+    NSLog(@"有参，无返回值");
+    NSString *message = [NSString stringWithFormat:@"%@:%@",param1,param2];
+    UIAlertController *alterVC = [UIAlertController alertControllerWithTitle:@"objc弹框" message:message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+    [alterVC addAction:okAction];
+    [self presentViewController:alterVC animated:YES completion:nil];
+}
+
+- (void)JSCallObjc {
+    NSLog(@"无参，无返回值");
+}
+
+- (NSString *)JSCallObjcReturn {
+    NSLog(@"无参，有返回值");
+    return @"ljt";
+}
+
+- (void)nativeCall:(NSString *)msg {
+    NSLog(@"NativeCall:%@",msg);
+}
+```
+
+然后我们需要让JS知道我们所需的函数,这个时候需要注册下上下文:
+
+```
+// 注册命名空间
+self.context[@"OBJC"] = self;
+```
+
+这样,我们就在JS注册上了对应的命名空间对应上的就是`self`实现的相关方法,我们在JS调用如下:
+
+```
+//调用OBJC
+function callObjcParam(param1,param2) {
+    var data = OBJC.JSCallObjcParamWith('Hello','World')
+    alert('来自objc(callObjcParam)的返回值:' + data);
+}
+function callObjc() {
+    var data = OBJC.JSCallObjc()
+    alert('来自objc(callObjc)的返回值:' + data);
+}
+    
+function callObjcReturn() {
+    var data = OBJC.JSCallObjcReturn()
+    alert('来自objc(callObjcReturn)的返回值:' + data);
+}
+
+function callTestNoReturn() {
+    var data = OBJC.test('Hello,World')
+    alert('来自objc(callTestNoReturn)的返回值:' + data);
+}
+```
+
+这样实现就可以实现JS调用OBJC
+
+-------
+
+Demo详见项目文件
+
